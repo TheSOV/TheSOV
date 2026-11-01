@@ -185,6 +185,9 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 - 2026-11-01 · Rects fusionados por filas → se emiten como un `<path>` por color (`M x y h w v1 h-w z`), ~12 bytes por tramo en vez de ~55 con `<rect>` (agente)
 - 2026-11-01 · ¿Mostrar colaboraciones con otros? → sí, panel «ALIADOS · CO-OP» a mano en `data/profile.json`: jztan/pdf-mcp, Panchovix/nvidia-linux-vbios-vix-loader, y «2 alianzas selladas» por las orgs de pertenencia privada, sin nombrarlas (persona, opción A)
 - 2026-11-01 · Color del corte de la cabecera → el mismo de la hoja térmica del héroe (`#ff9a3d` con núcleo `#fff2d6`), no el verde sable; mockup actualizado a v10 (persona)
+- 2026-11-01 · Punto de entrada del nivel → `node src/level/render.mjs [--sample]` en vez de `scripts/build.mjs --sample`: build.mjs es de `#static` y ampliar `touches` es de la persona; la Action llama al mismo comando (agente)
+- 2026-11-01 · Ritmo del nivel → 24 ticks/s: el año de ejemplo son 671 ticks, ~28 s por vuelta (H5 pedía ~30 s); 418 KB (agente)
+- 2026-11-01 · `face.png` fuera de git → la regla stray-control-character del gate lee binarios como texto ([TheSOV/harness#571](https://github.com/TheSOV/harness/issues/571)); se genera con el build y se sube a mano como avatar (persona: reportarlo y seguir)
 - 2026-11-01 · Etiquetas de SYSTEM STATUS → partidas en dos líneas a escala 2 en vez de encogerse a escala 1, que no se leía (agente)
 
 ## Milestones
@@ -262,7 +265,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 ## Verification
 
 ```sh
-node --test && node scripts/build.mjs --sample && node src/svg/check.mjs assets out/level.svg
+node --test && node scripts/build.mjs && node src/level/render.mjs --sample && node src/svg/check.mjs assets out/level.svg
 # tests: 0 fail · check: "N svg ok, 0 over budget, 0 forbidden, 0 without keyframes"
 ```
 
