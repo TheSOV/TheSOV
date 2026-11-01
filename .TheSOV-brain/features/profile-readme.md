@@ -264,7 +264,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
       touches:
         - README.md
 
-- [ ] **Cada stage se abre al pulsarlo**, como en el mockup: nueve casillas SVG en rejilla, y cada stage enlaza a su propia página en `stages/` con ZONA, JEFE y REPOS; sin JS #stage-click needs #static
+- [x] **Cada stage se abre al pulsarlo**, como en el mockup: nueve casillas SVG en rejilla, y cada stage enlaza a su propia página en `stages/` con ZONA, JEFE y REPOS; sin JS #stage-click needs #static
 
       Primero se probó la opción A (2026-11-02): cada casilla el `<summary>`
       de un `<details>` en una tabla. Funcionaba, pero la persona la
