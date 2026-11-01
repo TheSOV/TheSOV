@@ -29,10 +29,11 @@
       "id": "inf",
       "title": "INFERENCE",
       "sub": "LOCAL · MCP",
-      "zone": "El MC62 como servidor de inferencia, y herramientas para que los agentes lean PDFs enormes sin desbordar el contexto.",
+      "zone": "El MC62 como servidor de inferencia, medido con vLLM sin P2P ni NVLink, y herramientas para que los agentes lean PDFs enormes sin desbordar el contexto.",
       "boss": "CONTEXTO DESBORDADO",
       "repos": [
         "mc62-g40-quad-3090",
+        "quad-3090-llm-bench",
         "pdf-mcp"
       ]
     },
@@ -174,8 +175,8 @@
         "b": "lab",
         "la": "LLM",
         "lb": "IRON",
-        "text": "Un servidor de 4× 3090 dedicado a inferencia local, en una habitación donde también hay que dormir.",
-        "out": "> mc62-g40-quad-3090"
+        "text": "vLLM en cuatro 3090 sin P2P ni NVLink: los MoE van de 2 a 4 veces más rápido que los densos, y a 280 W por GPU rinden lo mismo que a 350.",
+        "out": "> quad-3090-llm-bench"
       },
       {
         "a": "inf",
@@ -214,6 +215,11 @@
     ]
   },
   "chipLog": [
+    {
+      "date": "2026-11",
+      "tag": "NEW CHIP ACQUIRED",
+      "title": "VLLM ON 4X 3090, NO P2P"
+    },
     {
       "date": "2026-11",
       "tag": "NEW CHIP ACQUIRED",
