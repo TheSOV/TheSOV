@@ -36,14 +36,14 @@ el hito `#spike` del plan `profile-readme`.
 
 | imagen | peso | ruta | Chrome | Firefox | Safari | app móvil | content-type camo | Cache-Control camo |
 |---|---|---|---|---|---|---|---|---|
-| probe-50 | 71 261 B | relativa | anima | | | | image/svg+xml | max-age=300 |
-| probe-150 | 205 427 B | relativa | anima | | | | image/svg+xml | max-age=300 |
-| probe-400 | 472 230 B | relativa | anima | | | | image/svg+xml | max-age=300 |
-| probe-1000 | 1 070 982 B | relativa | anima | | | | image/svg+xml | max-age=300 |
-| probe-400 | 472 230 B | raw main | anima | | | | image/svg+xml | max-age=300 |
-| probe-400 | 472 230 B | rama output | anima | | | | image/svg+xml | max-age=300 |
-| probe-1000 | 1 070 982 B | rama output | anima | | | | image/svg+xml | max-age=300 |
-| probe.gif | 1 225 929 B | relativa | se ve | | | | image/gif | max-age=300 |
+| probe-50 | 71 261 B | relativa | anima | ok | ok | ok | image/svg+xml | max-age=300 |
+| probe-150 | 205 427 B | relativa | anima | ok | ok | ok | image/svg+xml | max-age=300 |
+| probe-400 | 472 230 B | relativa | anima | ok | ok | ok | image/svg+xml | max-age=300 |
+| probe-1000 | 1 070 982 B | relativa | anima | ok | ok | ok | image/svg+xml | max-age=300 |
+| probe-400 | 472 230 B | raw main | anima | ok | ok | ok | image/svg+xml | max-age=300 |
+| probe-400 | 472 230 B | rama output | anima | ok | ok | ok | image/svg+xml | max-age=300 |
+| probe-1000 | 1 070 982 B | rama output | anima | ok | ok | ok | image/svg+xml | max-age=300 |
+| probe.gif | 1 225 929 B | relativa | se ve | ok | ok | ok | image/gif | max-age=300 |
 
 Medido el 2026-11-01, Chrome de escritorio, sobre https://github.com/TheSOV/svg-probe:
 
@@ -64,6 +64,6 @@ Medido el 2026-11-01, Chrome de escritorio, sobre https://github.com/TheSOV/svg-
   contribuciones privadas está activada y la vista pública las cuenta, así que el
   nivel no saldrá vacío. Que el `GITHUB_TOKEN` de la Action vea lo mismo se
   confirma en la primera ejecución de `#level`.
-- Movimiento reducido dentro de `<img>`: pendiente (Firefox, Safari, móvil:
-  persona).
+- **Firefox, Safari y la app móvil de GitHub: bien en todos** (la persona lo abrió en cada uno el
+  2026-11-01 y respondió «bien en todos»).
 - Commit de la prueba: `f78c960` (main), `dd08ef5` (output) en TheSOV/svg-probe.

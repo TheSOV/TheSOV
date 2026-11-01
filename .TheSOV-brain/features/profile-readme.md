@@ -183,7 +183,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 
 ## Milestones
 
-- [ ] **Un SVG animado de prueba se ve moviéndose en un README real de GitHub**, y queda escrito qué tamaño y qué rutas aguanta #spike
+- [x] **Un SVG animado de prueba se ve moviéndose en un README real de GitHub**, y queda escrito qué tamaño y qué rutas aguanta #spike
 
       Registra, en una tabla en spike/README.md:
         - pesos 50 / 150 / 400 / 1000 KB, con tantos rects × keyframes como el
