@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/status.svg" width="900" alt="System status: VRAM 96 GB, RAM 256 GB (128 + 128), 4 RTX 3090, 2 servidores, 2 de 2 ventiladores domados, impresión 3D a cero.">
+  <img src="assets/status.svg" width="900" alt="System status: VRAM 96 GB, RAM 256 GB, 4 RTX 3090, 2 servidores, 2 de 2 ventiladores domados, impresión 3D a cero.">
 </p>
 
 <p align="center">
