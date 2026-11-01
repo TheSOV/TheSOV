@@ -123,7 +123,8 @@ const tileAt = (i) => ({ x: TILE.left + (i % 3) * (TILE.w + TILE.gap), y: TILE.t
 
 function playerTile({ x, y }) {
   const frames = IDLE_POSES.map((p) => withBlade(heroPose(p)));
-  const idle = rotation("idle", frames.map(pathsSvg), 0.33);
+  // The mockup changed pose every 10 display frames: 1/6 s.
+  const idle = rotation("idle", frames.map(pathsSvg), 1 / 6);
   const body =
     box({ x, y, w: TILE.w, h: TILE.h, rx: 4, fill: "url(#me)", stroke: C.gold, "stroke-width": 2 }) +
     placed({ x: x + TILE.w / 2 - 33, y: y + 6 }, idle.body) +
@@ -200,7 +201,9 @@ function bar(b, cx) {
   const cells = Array.from({ length: CELLS }, (_, i) => {
     const y = 20 + (CELLS - 1 - i) * 6;
     if (i >= on) return box({ x: x + 6, y, w: 22, h: 4, fill: "#1a2350" });
-    return box({ x: x + 6, y, w: 22, h: 4, fill: b.colour, class: "on", style: `animation-delay:${fmt(0.3 + i * 0.04)}s` });
+    // Every cell is visible at rest; only the top lit one pulses. A one-shot fill-in that started
+    // at opacity 0 left the bottom cells hidden in some browsers' SVG-as-image renderers.
+    return box({ x: x + 6, y, w: 22, h: 4, fill: b.colour, ...(i === on - 1 ? { class: "tip" } : {}) });
   }).join("");
   return (
     box({ x: x + 1, y: 15, w: 32, h: 154, rx: 3, fill: "#05081a", stroke: C.line, "stroke-width": 2 }) + cells +
@@ -210,7 +213,7 @@ function bar(b, cx) {
 
 export function statusPanel(bars) {
   const h = 188 + 4 * LINE, col = W / bars.length;
-  const css = "@keyframes on{from{opacity:0}to{opacity:1}}.on{animation:on .04s steps(1,end) both}";
+  const css = "@keyframes tip{0%{opacity:1}50%{opacity:.35}}.tip{animation:tip 1.2s steps(1,end) infinite}";
   const body =
     box({ w: W, h, rx: 6, fill: C.bg, stroke: C.line }) + bars.map((b, i) => bar(b, Math.round(col * i + col / 2))).join("");
   return doc("status.svg", { height: h, css, body, alt: `System status: ${bars.map((b) => `${b.key} ${b.value}`).join(", ")}` });

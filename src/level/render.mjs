@@ -17,7 +17,10 @@ import { withBlade } from "../panels.mjs";
 import { simulate, restingSpot, STAGE, SLASH_BUCKETS } from "./simulate.mjs";
 import { parseCalendar, weekHeights, fetchCalendar } from "../contrib.mjs";
 
-export const TICK_S = 1 / 24; // 671 ticks of the sample year come to ~28 s, the ~30 s loop H5 chose
+// One physics tick per display frame, as the approved mockup stepped it with requestAnimationFrame:
+// the speed, gravity and frame counts in simulate.mjs are per 1/60 s. Playing them at 24/s made the
+// published level 2.5x slower than the mockup; a run of the real year is now ~11 s.
+export const TICK_S = 1 / 60;
 const LEVELS = ["#141f4a", "#1e3a5f", "#1f6f5c", "#2bb57f", "#3dffa2", "#3dffa2", "#3dffa2"];
 const BURST = ["#ffffff", "#f2b134", "#ff8a3d"];
 
