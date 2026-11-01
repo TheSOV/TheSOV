@@ -299,7 +299,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - assets/stage-train.svg
         - assets/stage-cross.svg
 
-- [ ] **Todo el perfil en inglés**: paneles, nivel, páginas de stage y textos alternativos; nada visible queda en español #english needs #stage-click
+- [x] **Todo el perfil en inglés**: paneles, nivel, páginas de stage y textos alternativos; nada visible queda en español #english needs #stage-click
 
       Pedido por la persona (2026-11-02): «hay cosas en inglés y otras en
       español. Vamos todo en inglés». Antes, los rótulos de juego iban en
