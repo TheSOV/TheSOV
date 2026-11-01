@@ -1,0 +1,262 @@
+{
+  "header": {
+    "name": "THESOV",
+    "ready": "READY",
+    "sub": "LEGACY IRON · 4× RTX 3090 · LOCAL LLM · AGENTS"
+  },
+  "stages": [
+    {
+      "id": "gpu",
+      "title": "GPU FORGE",
+      "sub": "4× RTX 3090",
+      "zone": "Un Gigabyte MC62-G40 con cuatro 3090 blower para inferencia. Arreglo del pico de ventiladores del BMC y mínimo de ventilador en la VBIOS.",
+      "boss": "CUATRO TURBINAS A FONDO",
+      "repos": [
+        "mc62-g40-quad-3090"
+      ]
+    },
+    {
+      "id": "lab",
+      "title": "LEGACY IRON",
+      "sub": "EPYC · IPMI",
+      "zone": "Supermicro H11SSL-i con EPYC, silenciado desde Windows sin instalar nada: IPMI en crudo por WMI y registros del SDR borrados y restaurados.",
+      "boss": "FAIL-SAFE DE BAJAS RPM",
+      "repos": [
+        "h11ssl-quiet-fans"
+      ]
+    },
+    {
+      "id": "inf",
+      "title": "INFERENCE",
+      "sub": "LOCAL · MCP",
+      "zone": "El MC62 como servidor de inferencia, y herramientas para que los agentes lean PDFs enormes sin desbordar el contexto.",
+      "boss": "CONTEXTO DESBORDADO",
+      "repos": [
+        "mc62-g40-quad-3090",
+        "pdf-mcp"
+      ]
+    },
+    {
+      "id": "ag",
+      "title": "AGENTS",
+      "sub": "CREWAI · RAG",
+      "zone": "Sistemas multiagente: manifiestos de Kubernetes a partir de lenguaje natural, verificación de afirmaciones contra Wikipedia y llamadas de voz en tiempo real.",
+      "boss": "ALUCINACIONES",
+      "repos": [
+        "KubernetesCrew",
+        "NLP_Fact_checker",
+        "TwilioVoiceBot"
+      ]
+    },
+    {
+      "id": "me"
+    },
+    {
+      "id": "elec",
+      "title": "ELECTRONICS",
+      "sub": "LOCKED",
+      "locked": true,
+      "zone": "Sensores, shunts y firmware para medir y controlar el resto del hardware.",
+      "boss": "???",
+      "repos": []
+    },
+    {
+      "id": "fab",
+      "title": "FABRICATOR",
+      "sub": "LOCKED",
+      "locked": true,
+      "zone": "Impresión 3D funcional: ductos para las 3090, soportes, cajas para la electrónica.",
+      "boss": "???",
+      "repos": []
+    },
+    {
+      "id": "train",
+      "title": "TRAINING",
+      "sub": "LOCKED",
+      "locked": true,
+      "zone": "Fine-tuning en las 3090: LoRA, datasets propios y evaluación.",
+      "boss": "???",
+      "repos": []
+    },
+    {
+      "id": "cross",
+      "title": "CROSSOVER",
+      "sub": "* HW × CODE",
+      "zone": "Donde ya se cruzan los stages: firmware, BMC y scripts que domestican hardware de servidor.",
+      "boss": "EL RUIDO",
+      "repos": [
+        "h11ssl-quiet-fans",
+        "mc62-g40-quad-3090"
+      ],
+      "selected": true
+    }
+  ],
+  "warning": {
+    "label": "AHORA MISMO:",
+    "lines": [
+      "COMPLICÁNDOME LA VIDA CON HARDWARE LEGACY",
+      "CONVENCIENDO A CUATRO 3090 DE QUE YA ES DE NOCHE",
+      "GASTÁNDOME LA DEVOLUCIÓN DE LA RENTA EN OTRO SERVIDOR VIEJO",
+      "CALMANDO A UN BMC QUE CREE QUE TODO ES UN INCENDIO",
+      "INSTALANDO UN AVIÓN EN MI HABITACIÓN (SERVIDOR TURBO)",
+      "BORRANDO SENSORES DEL BMC HASTA QUE DEJE DE ASUSTARSE",
+      "HABLÁNDOLE A UN EPYC EN IPMI CRUDO, SIN TRADUCTOR",
+      "ESCRIBIENDO YAML PARA QUE TRES AGENTES ESCRIBAN YAML",
+      "PONIÉNDOLE UN PORTERO DE DISCOTECA A MIS PROPIOS COMMITS",
+      "PIDIÉNDOLE A UN AGENTE QUE REVISE LO QUE HIZO OTRO AGENTE",
+      "DISCUTIENDO CON WIKIPEDIA A TRAVÉS DE VARIOS AGENTES",
+      "HACIENDO QUE UN BOT LLAME POR TELÉFONO PARA NO LLAMAR YO",
+      "DÁNDOLE PDFS ENORMES A UN AGENTE SIN QUE SE ATRAGANTE",
+      "OBLIGANDO A UN LLM A CITAR SUS FUENTES O CALLARSE",
+      "ESTUDIANDO CON UN PROFESOR QUE VIVE EN MI SERVIDOR",
+      "PROGRAMANDO BOTS DE TELEGRAM PARA QUE ME AGOBIEN A MÍ"
+    ],
+    "lineSeconds": 3.2
+  },
+  "status": [
+    {
+      "key": "VRAM",
+      "value": "96 GB",
+      "fill": 1,
+      "colour": "#3dffa2"
+    },
+    {
+      "key": "RAM",
+      "value": "256 GB · 128 + 128",
+      "fill": 1,
+      "colour": "#b388ff"
+    },
+    {
+      "key": "RTX 3090",
+      "value": "4",
+      "fill": 1,
+      "colour": "#4cc9f0"
+    },
+    {
+      "key": "SERVIDORES",
+      "value": "2",
+      "fill": 0.5,
+      "colour": "#f2b134"
+    },
+    {
+      "key": "VENTILADORES DOMADOS",
+      "value": "2/2",
+      "fill": 1,
+      "colour": "#3dffa2"
+    },
+    {
+      "key": "IMPRESIÓN 3D",
+      "value": "0",
+      "fill": 0,
+      "colour": "#d7263d"
+    }
+  ],
+  "crossover": {
+    "cleared": [
+      {
+        "a": "lab",
+        "b": "code",
+        "la": "LEGACY",
+        "lb": "CODE",
+        "text": "Ventiladores silenciosos en un EPYC desde Windows sin instalar herramientas: IPMI en crudo por WMI y el fail-safe de bajas RPM rastreado en el SEL.",
+        "out": "> h11ssl-quiet-fans"
+      },
+      {
+        "a": "gpu",
+        "b": "code",
+        "la": "GPU",
+        "lb": "FIRMWARE",
+        "text": "Mínimo de ventilador en la VBIOS de las 3090 blower con el loader de Vix, más un arreglo del pico de ventiladores del BMC.",
+        "out": "> mc62-g40-quad-3090"
+      },
+      {
+        "a": "inf",
+        "b": "lab",
+        "la": "LLM",
+        "lb": "IRON",
+        "text": "Un servidor de 4× 3090 dedicado a inferencia local, en una habitación donde también hay que dormir.",
+        "out": "> mc62-g40-quad-3090"
+      },
+      {
+        "a": "inf",
+        "b": "code",
+        "la": "AGENTS",
+        "lb": "INFRA",
+        "text": "Tres agentes CrewAI que convierten requisitos en manifiestos de Kubernetes y los validan.",
+        "out": "> KubernetesCrew *5"
+      }
+    ],
+    "locked": [
+      {
+        "a": "gpu",
+        "b": "fab",
+        "la": "GPU",
+        "lb": "FAB",
+        "text": "Ductos impresos para que las blower no tengan que gritar.",
+        "out": "LOCKED"
+      },
+      {
+        "a": "lab",
+        "b": "elec",
+        "la": "IRON",
+        "lb": "ELEC",
+        "text": "Medir lo que consume el servidor por token generado.",
+        "out": "LOCKED"
+      },
+      {
+        "a": "gpu",
+        "b": "train",
+        "la": "GPU",
+        "lb": "TRAIN",
+        "text": "Fine-tuning en las cuatro 3090.",
+        "out": "LOCKED"
+      }
+    ]
+  },
+  "chipLog": [
+    {
+      "date": "2026-11",
+      "tag": "NEW CHIP ACQUIRED",
+      "title": "RAW IPMI VIA WMI"
+    },
+    {
+      "date": "2026-11",
+      "tag": "NEW CHIP ACQUIRED",
+      "title": "3090 VBIOS FAN FLOOR"
+    },
+    {
+      "date": "2025-09",
+      "tag": "NEW CHIP ACQUIRED",
+      "title": "CREWAI > K8S MANIFESTS"
+    },
+    {
+      "date": "2025-05",
+      "tag": "NEW CHIP ACQUIRED",
+      "title": "MULTIAGENT FACT CHECKING"
+    },
+    {
+      "date": "2025-05",
+      "tag": "NEW CHIP ACQUIRED",
+      "title": "REALTIME VOICE CALLS"
+    }
+  ],
+  "demons": {
+    "sealed": 39,
+    "caption": "Repos privados. No tienen nombre aquí. Algunos duermen, otros pagan el alquiler, uno habla con la BMC a las tres de la mañana."
+  },
+  "allies": {
+    "repos": [
+      {
+        "repo": "jztan/pdf-mcp",
+        "stars": 165,
+        "role": "5 COMMITS · 1 PR"
+      },
+      {
+        "repo": "Panchovix/nvidia-linux-vbios-vix-loader",
+        "stars": 63,
+        "role": "INFORME RTX 3090"
+      }
+    ],
+    "sealedAlliances": 2
+  }
+}

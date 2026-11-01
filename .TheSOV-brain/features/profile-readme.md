@@ -183,6 +183,9 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 - 2026-11-01 · ¿Borrar el repo temporal TheSOV/svg-probe al cerrar #spike? → sí, borrado por la persona; los resultados quedan en `spike/README.md` (persona)
 - 2026-11-01 · Presupuesto de peso por SVG → 1 000 000 bytes, bajo los 1 070 982 que el spike vio animar en todos los navegadores; no se conoce el límite real (agente)
 - 2026-11-01 · Rects fusionados por filas → se emiten como un `<path>` por color (`M x y h w v1 h-w z`), ~12 bytes por tramo en vez de ~55 con `<rect>` (agente)
+- 2026-11-01 · ¿Mostrar colaboraciones con otros? → sí, panel «ALIADOS · CO-OP» a mano en `data/profile.json`: jztan/pdf-mcp, Panchovix/nvidia-linux-vbios-vix-loader, y «2 alianzas selladas» por las orgs de pertenencia privada, sin nombrarlas (persona, opción A)
+- 2026-11-01 · Color del corte de la cabecera → el mismo de la hoja térmica del héroe (`#ff9a3d` con núcleo `#fff2d6`), no el verde sable; mockup actualizado a v10 (persona)
+- 2026-11-01 · Etiquetas de SYSTEM STATUS → partidas en dos líneas a escala 2 en vez de encogerse a escala 1, que no se leía (agente)
 
 ## Milestones
 
@@ -225,7 +228,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - src/svg/check.mjs
         - test/svg.test.mjs
 
-- [ ] **Los SVG fijos existen y se ven como el mockup**: cabecera, stage select, warning, status, crossover, chip log, demonios, y el PNG de la cara #static needs #svg
+- [x] **Los SVG fijos existen y se ven como el mockup**: cabecera, stage select, warning, status, crossover, chip log, demonios, aliados, y el PNG de la cara #static needs #svg
 
       touches:
         - data/profile.json
@@ -238,6 +241,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - assets/crossover.svg
         - assets/chiplog.svg
         - assets/demons.svg
+        - assets/allies.svg
         - assets/face.png
 
 - [ ] **El nivel sale de contribuciones reales** y una Action diaria lo publica en la rama `output`; si falla, no commitea #level needs #svg #spike
