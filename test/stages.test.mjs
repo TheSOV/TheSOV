@@ -35,8 +35,8 @@ test("each stage page carries its zone, boss and repos, or says it is still lock
     assert.equal(name, `stages/${st.id}.md`);
     assert.ok(md.includes(`src="../assets/stage-${st.id}.svg"`));
     for (const repo of st.repos) assert.ok(md.includes(`href="https://github.com/TheSOV/${repo}"`), `${st.id} ${repo}`);
-    assert.equal(md.includes("Todavía no hay ninguno"), st.repos.length === 0, st.id);
-    assert.ok(md.includes('href="https://github.com/TheSOV">◂ VOLVER AL STAGE SELECT'));
+    assert.equal(md.includes("None yet"), st.repos.length === 0, st.id);
+    assert.ok(md.includes('href="https://github.com/TheSOV">◂ BACK TO STAGE SELECT'));
   }
 });
 

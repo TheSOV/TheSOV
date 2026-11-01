@@ -2,13 +2,13 @@
 
 <p align="center"><img src="../assets/stage-ag.svg" width="600" alt="AGENTS: CREWAI · RAG"></p>
 
-<h3>ZONA</h3>
-<p>Sistemas multiagente: manifiestos de Kubernetes a partir de lenguaje natural, verificación de afirmaciones contra Wikipedia y llamadas de voz en tiempo real.</p>
+<h3>ZONE</h3>
+<p>Multi-agent systems: Kubernetes manifests from plain language, claims checked against Wikipedia, and real-time voice calls.</p>
 
-<h3>JEFE</h3>
-<p><b>ALUCINACIONES</b></p>
+<h3>BOSS</h3>
+<p><b>HALLUCINATIONS</b></p>
 
 <h3>REPOS</h3>
 <ul><li><a href="https://github.com/TheSOV/KubernetesCrew">KubernetesCrew</a></li><li><a href="https://github.com/TheSOV/NLP_Fact_checker">NLP_Fact_checker</a></li><li><a href="https://github.com/TheSOV/TwilioVoiceBot">TwilioVoiceBot</a></li></ul>
 
-<p align="center"><a href="https://github.com/TheSOV">◂ VOLVER AL STAGE SELECT</a></p>
+<p align="center"><a href="https://github.com/TheSOV">◂ BACK TO STAGE SELECT</a></p>

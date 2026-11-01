@@ -2,13 +2,13 @@
 
 <p align="center"><img src="../assets/stage-gpu.svg" width="600" alt="GPU FORGE: 4× RTX 3090"></p>
 
-<h3>ZONA</h3>
-<p>Un Gigabyte MC62-G40 con cuatro 3090 blower para inferencia. Arreglo del pico de ventiladores del BMC y mínimo de ventilador en la VBIOS.</p>
+<h3>ZONE</h3>
+<p>A Gigabyte MC62-G40 with four blower 3090s for inference. A fix for the BMC's fan spikes, and a fan floor in the VBIOS.</p>
 
-<h3>JEFE</h3>
-<p><b>CUATRO TURBINAS A FONDO</b></p>
+<h3>BOSS</h3>
+<p><b>FOUR TURBINES AT FULL TILT</b></p>
 
 <h3>REPOS</h3>
 <ul><li><a href="https://github.com/TheSOV/mc62-g40-quad-3090">mc62-g40-quad-3090</a></li></ul>
 
-<p align="center"><a href="https://github.com/TheSOV">◂ VOLVER AL STAGE SELECT</a></p>
+<p align="center"><a href="https://github.com/TheSOV">◂ BACK TO STAGE SELECT</a></p>

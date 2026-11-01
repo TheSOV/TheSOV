@@ -2,13 +2,13 @@
 
 <p align="center"><img src="../assets/stage-inf.svg" width="600" alt="INFERENCE: LOCAL · MCP"></p>
 
-<h3>ZONA</h3>
-<p>El MC62 como servidor de inferencia, medido con vLLM sin P2P ni NVLink, y herramientas para que los agentes lean PDFs enormes sin desbordar el contexto.</p>
+<h3>ZONE</h3>
+<p>The MC62 as an inference server, benchmarked with vLLM without P2P or NVLink, plus tools that let agents read huge PDFs without overflowing their context.</p>
 
-<h3>JEFE</h3>
-<p><b>CONTEXTO DESBORDADO</b></p>
+<h3>BOSS</h3>
+<p><b>CONTEXT OVERFLOW</b></p>
 
 <h3>REPOS</h3>
 <ul><li><a href="https://github.com/TheSOV/mc62-g40-quad-3090">mc62-g40-quad-3090</a></li><li><a href="https://github.com/TheSOV/quad-3090-llm-bench">quad-3090-llm-bench</a></li><li><a href="https://github.com/TheSOV/pdf-mcp">pdf-mcp</a></li></ul>
 
-<p align="center"><a href="https://github.com/TheSOV">◂ VOLVER AL STAGE SELECT</a></p>
+<p align="center"><a href="https://github.com/TheSOV">◂ BACK TO STAGE SELECT</a></p>

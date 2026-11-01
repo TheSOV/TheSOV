@@ -2,13 +2,13 @@
 
 <p align="center"><img src="../assets/stage-cross.svg" width="600" alt="CROSSOVER: * HW × CODE"></p>
 
-<h3>ZONA</h3>
-<p>Donde ya se cruzan los stages: firmware, BMC y scripts que domestican hardware de servidor.</p>
+<h3>ZONE</h3>
+<p>Where the stages already meet: firmware, BMCs and scripts that tame server hardware.</p>
 
-<h3>JEFE</h3>
-<p><b>EL RUIDO</b></p>
+<h3>BOSS</h3>
+<p><b>THE NOISE</b></p>
 
 <h3>REPOS</h3>
 <ul><li><a href="https://github.com/TheSOV/h11ssl-quiet-fans">h11ssl-quiet-fans</a></li><li><a href="https://github.com/TheSOV/mc62-g40-quad-3090">mc62-g40-quad-3090</a></li></ul>
 
-<p align="center"><a href="https://github.com/TheSOV">◂ VOLVER AL STAGE SELECT</a></p>
+<p align="center"><a href="https://github.com/TheSOV">◂ BACK TO STAGE SELECT</a></p>
