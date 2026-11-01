@@ -259,7 +259,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - .github/workflows/level.yml
         - test/level.test.mjs
 
-- [ ] **El README une todo** con texto alternativo en cada imagen, y el perfil publicado se ve como el mockup #readme needs #static #level
+- [x] **El README une todo** con texto alternativo en cada imagen, y el perfil publicado se ve como el mockup #readme needs #static #level
 
       touches:
         - README.md
