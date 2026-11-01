@@ -201,7 +201,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - spike/.gitignore
         - spike/gen.mjs
 
-- [ ] **Los sprites se dibujan sin canvas**: funciones puras que devuelven una cuadrícula de colores, idénticas píxel a píxel a la salida de `makeSprite` en el mockup #sprite
+- [x] **Los sprites se dibujan sin canvas**: funciones puras que devuelven una cuadrícula de colores, idénticas píxel a píxel a la salida de `makeSprite` en el mockup #sprite
 
       Lo que el mockup dibuja fuera de la cuadrícula se rediseña en pixel art:
       el arco del corte (`arc`), las estelas con `globalAlpha`, los destellos
