@@ -178,7 +178,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 - 2026-11-01 · ¿Cómo se llaman los privados en el perfil? → «demonios internos», sin nombres (persona)
 - 2026-11-01 · ¿Un plan o dos encadenados? → un plan, con la prueba en GitHub como primer hito (persona)
 - 2026-11-01 · ¿Modo plan o libre? → plan (persona)
-- 2026-11-01 · Medidores de SYSTEM STATUS → añadir RAM: 256 GB y 128 GB, una por servidor, 384 GB en total (persona)
+- 2026-11-01 · Medidores de SYSTEM STATUS → añadir RAM: 128 GB por servidor, 256 GB en total (persona; corregido el mismo día, primero lo entendí como 256 + 128)
 - 2026-11-01 · ¿Plan y huecos H1-H6 con sus ★? → aprobado (persona)
 
 ## Milestones
@@ -198,7 +198,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 
       touches:
         - spike/README.md
-        - spike/probe.svg
+        - spike/.gitignore
         - spike/gen.mjs
 
 - [ ] **Los sprites se dibujan sin canvas**: funciones puras que devuelven una cuadrícula de colores, idénticas píxel a píxel a la salida de `makeSprite` en el mockup #sprite
