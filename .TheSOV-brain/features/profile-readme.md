@@ -180,6 +180,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 - 2026-11-01 · ¿Modo plan o libre? → plan (persona)
 - 2026-11-01 · Medidores de SYSTEM STATUS → añadir RAM: 128 GB por servidor, 256 GB en total (persona; corregido el mismo día, primero lo entendí como 256 + 128)
 - 2026-11-01 · ¿Plan y huecos H1-H6 con sus ★? → aprobado (persona)
+- 2026-11-01 · ¿Borrar el repo temporal TheSOV/svg-probe al cerrar #spike? → sí, borrado por la persona; los resultados quedan en `spike/README.md` (persona)
 
 ## Milestones
 
