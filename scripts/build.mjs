@@ -1,11 +1,14 @@
 // Writes the fixed panels of the profile to assets/: one SVG per panel from data/profile.json,
-// and face.png for the avatar (uploaded by hand). The daily level is a separate build.
+// and face.png for the avatar (uploaded by hand), then the page each stage opens (stages/) and the
+// stage-select grid between its markers in README.md. The daily level is a separate build.
 //
 //   node scripts/build.mjs        prints one line per file written, with its size
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { staticPanels, faceRgb, pngRgb } from "../src/panels.mjs";
+import { staticPanels, faceRgb, pngRgb, withStageGrid, stagePages } from "../src/panels.mjs";
+
+const LOGIN = "TheSOV";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const ASSETS = join(ROOT, "assets");
@@ -21,6 +24,11 @@ function main() {
   mkdirSync(ASSETS, { recursive: true });
   for (const panel of staticPanels(data)) write(panel.name, panel.svg);
   write("face.png", pngRgb(faceRgb()));
+  mkdirSync(join(ROOT, "stages"), { recursive: true });
+  for (const page of stagePages(data.stages, LOGIN)) writeFileSync(join(ROOT, page.name), page.md);
+  const readmeFile = join(ROOT, "README.md");
+  writeFileSync(readmeFile, withStageGrid(readFileSync(readmeFile, "utf8"), data.stages, LOGIN));
+  console.log("README.md      stage-select grid, and one page per stage in stages/");
 }
 
 main();
