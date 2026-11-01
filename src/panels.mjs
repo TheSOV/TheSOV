@@ -3,7 +3,7 @@
 // All text is the pixel font, all motion is CSS with steps(), and every panel rests on a
 // sensible still frame when reduced motion turns animation off.
 import { deflateSync, crc32 } from "node:zlib";
-import { svgDocument, pathsSvg, placed } from "./svg/grid.mjs";
+import { svgDocument, pathsSvg, placed, escapeXml } from "./svg/grid.mjs";
 import { frameDelay, fmt } from "./svg/frames.mjs";
 import { textSvg, textWidth } from "./svg/font.mjs";
 import { heroPose, IDLE_POSES } from "./sprites/hero.mjs";
@@ -118,8 +118,7 @@ export function withBlade(sprite, { angle = 1.2, length = 24 } = {}) {
   return { ...sprite, px };
 }
 
-const TILE = { w: 284, h: 120, gap: 8, left: 16, top: 40 };
-const tileAt = (i) => ({ x: TILE.left + (i % 3) * (TILE.w + TILE.gap), y: TILE.top + Math.floor(i / 3) * (TILE.h + TILE.gap) });
+const TILE = { w: 284, h: 120 };
 
 function playerTile({ x, y }) {
   const frames = IDLE_POSES.map((p) => withBlade(heroPose(p)));
@@ -153,20 +152,70 @@ function stageTile(st, at) {
   return parts.join("");
 }
 
-export function stagesPanel(stages) {
-  const h = TILE.top + 3 * TILE.h + 2 * TILE.gap + 16;
-  const defs = `<defs><linearGradient id="me" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c1240"/><stop offset="1" stop-color="#2a0f22"/></linearGradient></defs>`;
-  let css = blink("cursor", 1);
-  let tiles = "";
-  stages.forEach((st, i) => {
-    if (st.id !== "me") return void (tiles += stageTile(st, tileAt(i)));
-    const p = playerTile(tileAt(i));
-    css += p.css;
-    tiles += p.body;
-  });
-  const body = defs + box({ w: W, h, rx: 6, fill: C.bg, stroke: C.line }) + label("STAGE SELECT", { x: 16, midY: 22, colour: C.gold }) + tiles;
-  const names = stages.filter((s) => s.id !== "me").map((s) => `${s.title}${s.locked ? " (bloqueado)" : ""}`).join(", ");
-  return doc("stages.svg", { height: h, css, body, alt: `Stage select: ${names}; en el centro, el reploide en reposo con su hoja térmica` });
+// The stage select is nine images in a README table, one per tile, so each can be the <summary>
+// of its own <details>: clicking a stage opens its sheet, as the mockup's buttons did, with no JS.
+// Each tile is padded so the selection cursor, drawn outside the frame, still fits.
+const TILE_PAD = 8;
+const TILE_AT = { x: TILE_PAD, y: TILE_PAD };
+const ME_GRADIENT = '<defs><linearGradient id="me" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c1240"/><stop offset="1" stop-color="#2a0f22"/></linearGradient></defs>';
+const tileFile = (st) => `stage-${st.id}.svg`;
+
+// A small blinking arrow in the corner: this tile opens.
+const openHint = ({ x, y }) =>
+  el("path", { class: "hint", d: `M${x + TILE.w - 22} ${y + TILE.h - 16}h12l-6 7z`, fill: C.gold });
+
+function tileDoc(st) {
+  const size = { width: TILE.w + 2 * TILE_PAD, height: TILE.h + 2 * TILE_PAD };
+  if (st.id === "me") {
+    const p = playerTile(TILE_AT);
+    return { name: tileFile(st), alt: "Player 1: el reploide en reposo con su hoja térmica", svg: svgDocument({ ...size, css: p.css, body: ME_GRADIENT + p.body, label: "Player 1" }) };
+  }
+  const alt = `${st.title}: ${st.sub}${st.locked ? " (bloqueado)" : ""}. Pulsa para ver la zona`;
+  const css = blink("hint", 1) + blink("cursor", 1);
+  return { name: tileFile(st), alt, svg: svgDocument({ ...size, css, body: stageTile(st, TILE_AT) + openHint(TILE_AT), label: alt }) };
+}
+
+function stageHead() {
+  const h = 36, prompt = "PULSA UN STAGE";
+  const body =
+    label("STAGE SELECT", { x: 16, midY: 18, colour: C.gold }) +
+    label(prompt, { x: W - 16 - textWidth(prompt) * 2, midY: 18, colour: C.muted, cls: "prompt" });
+  return doc("stage-head.svg", { height: h, css: blink("prompt", 1.4), body, alt: "Stage select: pulsa un stage para ver su zona, su jefe y sus repos" });
+}
+
+export const stagePanels = (stages) => [stageHead(), ...stages.map(tileDoc)];
+
+// ---- the README table around those tiles
+const LOCKED_REPOS = "Todavía no hay ninguno. Este stage se desbloquea con el primer repo.";
+const TILE_IMG_WIDTH = TILE.w + 2 * TILE_PAD;
+
+// <picture> keeps GitHub from wrapping the image in a link to the SVG, which would take the click
+// away from the <summary>.
+const tileImg = (st, alt) => `<picture><img src="assets/${tileFile(st)}" width="${TILE_IMG_WIDTH}" alt="${escapeXml(alt)}"></picture>`;
+const repoLinks = (st, login) =>
+  st.repos.length === 0 ? `<i>${LOCKED_REPOS}</i>` : st.repos.map((r) => `<a href="https://github.com/${login}/${r}">${escapeXml(r)}</a>`).join("<br>");
+
+function stageCell(st, login) {
+  const { alt } = tileDoc(st);
+  if (st.id === "me") return `<td align="center">${tileImg(st, alt)}</td>`;
+  const sheet = [["ZONA", escapeXml(st.zone)], ["JEFE", escapeXml(st.boss)], ["REPOS", repoLinks(st, login)]]
+    .map(([k, v]) => `<b>${k}</b><br>${v}`).join("<br><br>");
+  return `<td valign="top"><details><summary>${tileImg(st, alt)}</summary><br>${sheet}</details></td>`;
+}
+
+export const STAGE_TABLE_START = "<!-- stage-select:start (generated by scripts/build.mjs from data/profile.json) -->";
+export const STAGE_TABLE_END = "<!-- stage-select:end -->";
+
+export function stageTable(stages, login) {
+  const rows = [0, 3, 6].map((i) => `<tr>\n${stages.slice(i, i + 3).map((st) => `  ${stageCell(st, login)}`).join("\n")}\n</tr>`);
+  return `<p align="center"><img src="assets/stage-head.svg" width="900" alt="${escapeXml(stageHead().alt)}"></p>\n\n<table align="center">\n${rows.join("\n")}\n</table>`;
+}
+
+// The README with its stage-select block regenerated; everything outside the markers is untouched.
+export function withStageTable(readme, stages, login) {
+  const start = readme.indexOf(STAGE_TABLE_START), end = readme.indexOf(STAGE_TABLE_END);
+  if (start < 0 || end < start) throw new Error("README.md has no stage-select markers");
+  return readme.slice(0, start + STAGE_TABLE_START.length) + "\n" + stageTable(stages, login) + "\n" + readme.slice(end);
 }
 
 // ---- warning: striped bands, a blinking title, one line at a time of what is going on
@@ -326,7 +375,7 @@ export function alliesPanel({ repos, sealedAlliances }) {
 
 export function staticPanels(data) {
   return [
-    headerPanel(data.header), stagesPanel(data.stages), warningPanel(data.warning), statusPanel(data.status),
+    headerPanel(data.header), ...stagePanels(data.stages), warningPanel(data.warning), statusPanel(data.status),
     crossoverPanel(data.crossover), chipLogPanel(data.chipLog), demonsPanel(data.demons), alliesPanel(data.allies),
   ];
 }

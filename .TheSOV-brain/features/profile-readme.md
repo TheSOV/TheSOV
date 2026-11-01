@@ -264,6 +264,30 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
       touches:
         - README.md
 
+- [ ] **Cada stage se abre al pulsarlo**, como en el mockup: nueve casillas SVG en una tabla, cada una el `<summary>` de un `<details>` con ZONA, JEFE y REPOS; sin JS #stage-click needs #static
+
+      Elegida por la persona (opción A, 2026-11-02) frente a casillas-enlace
+      o una tabla fija. La imagen va dentro de `<picture>`: GitHub envuelve
+      cualquier `<img>` suelto en un enlace al propio SVG, y dentro de un
+      `<summary>` ese enlace se come el clic.
+
+      touches:
+        - src/panels.mjs
+        - scripts/build.mjs
+        - README.md
+        - test/stages.test.mjs
+        - assets/stages.svg
+        - assets/stage-head.svg
+        - assets/stage-gpu.svg
+        - assets/stage-lab.svg
+        - assets/stage-inf.svg
+        - assets/stage-ag.svg
+        - assets/stage-me.svg
+        - assets/stage-elec.svg
+        - assets/stage-fab.svg
+        - assets/stage-train.svg
+        - assets/stage-cross.svg
+
 ## Verification
 
 ```sh
