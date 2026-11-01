@@ -18,7 +18,9 @@ concurrency:
 jobs:
   level:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # A normal run is well under a minute (the build itself takes ~1 s); this only caps a hung
+    # GraphQL call. Standard runners are free in public repos, so this costs nothing either way.
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@v4
         with:
