@@ -190,8 +190,9 @@ export const stagePanels = (stages) => [stageHead(), ...stages.map(tileDoc)];
 // Clicking a stage enters it: every tile but the player links to its own page under stages/, with
 // the zone, boss and repos the mockup showed in its detail panel.
 const LOCKED_REPOS = "Todavía no hay ninguno. Este stage se desbloquea con el primer repo.";
-// Three tiles and no whitespace between them fit the ~814 px a profile README is wide.
-const GRID_TILE_WIDTH = 268;
+// A share of the column rather than pixels: the profile column is ~814 px on a wide screen but
+// ~545 px on a narrow one, where three fixed-width tiles wrapped into rows of two and one.
+const GRID_TILE_WIDTH = "32%";
 
 export const stagePageFile = (st) => `stages/${st.id}.md`;
 const pageUrl = (st, login) => `https://github.com/${login}/${login}/blob/main/${stagePageFile(st)}`;
