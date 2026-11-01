@@ -187,7 +187,7 @@ function counterSvg(sim) {
   const bounds = [0, ...kills, n];
   let css = "", body = "";
   for (let c = 0; c < bounds.length - 1; c++) {
-    const text = `ENEMIGOS: ${c}`;
+    const text = `ENEMIES: ${c}`;
     css += visibleDuring(`k${c}`, [[bounds[c], bounds[c + 1]]], n);
     body += group(`k${c}`, textSvg(text, { x: STAGE.width - 6 - textWidth(text) * 2, y: 4, scale: 2, colour: "#f2b134" }), c === 0 ? 1 : 0);
   }
@@ -196,7 +196,7 @@ function counterSvg(sim) {
 
 export function levelSvg({ total, weeks }, { sample = false } = {}) {
   const sim = simulate(weekHeights(weeks));
-  const title = `ÚLTIMO AÑO · ${total} CONTRIBUCIONES${sample ? " (EJEMPLO)" : ""}`;
+  const title = `LAST YEAR · ${total} CONTRIBUTIONS${sample ? " (SAMPLE)" : ""}`;
   const parts = [heroSvg(sim), enemiesSvg(sim), counterSvg(sim)];
   const body =
     `<rect width="${STAGE.width}" height="${STAGE.height}" fill="#0a0f24"/>` + terrainSvg(sim.land) +
@@ -205,7 +205,7 @@ export function levelSvg({ total, weeks }, { sample = false } = {}) {
     sim,
     svg: svgDocument({
       width: STAGE.width, height: STAGE.height, css: parts.map((p) => p.css).join(""), body,
-      label: `Las contribuciones del último año (${total}${sample ? ", datos de ejemplo" : ""}) convertidas en un nivel de plataformas que el reploide recorre cortando enemigos`,
+      label: `The last year of contributions (${total}${sample ? ", sample data" : ""}) turned into a platform level the reploid runs through, slashing enemies`,
     }),
   };
 }

@@ -45,7 +45,7 @@ test("the sample level has 52 columns and passes the SVG check", () => {
   const { svg, sim } = levelSvg(parseCalendar(SAMPLE), { sample: true });
   assert.equal(sim.land.heights.length, WEEKS);
   assert.deepEqual(checkSvg(svg).problems, []);
-  assert.match(svg, /aria-label="[^"]*datos de ejemplo/);
+  assert.match(svg, /aria-label="[^"]*sample data/);
 });
 
 test("the hero is never below the terrain under either foot, on any tick", () => {

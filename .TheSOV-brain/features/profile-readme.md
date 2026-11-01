@@ -264,7 +264,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
       touches:
         - README.md
 
-- [ ] **Cada stage se abre al pulsarlo**, como en el mockup: nueve casillas SVG en rejilla, y cada stage enlaza a su propia página en `stages/` con ZONA, JEFE y REPOS; sin JS #stage-click needs #static
+- [x] **Cada stage se abre al pulsarlo**, como en el mockup: nueve casillas SVG en rejilla, y cada stage enlaza a su propia página en `stages/` con ZONA, JEFE y REPOS; sin JS #stage-click needs #static
 
       Primero se probó la opción A (2026-11-02): cada casilla el `<summary>`
       de un `<details>` en una tabla. Funcionaba, pero la persona la
@@ -298,6 +298,46 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - assets/stage-fab.svg
         - assets/stage-train.svg
         - assets/stage-cross.svg
+
+- [ ] **Todo el perfil en inglés**: paneles, nivel, páginas de stage y textos alternativos; nada visible queda en español #english needs #stage-click
+
+      Pedido por la persona (2026-11-02): «hay cosas en inglés y otras en
+      español. Vamos todo en inglés». Antes, los rótulos de juego iban en
+      inglés y las frases en español. Las notas del vault siguen en español:
+      no son parte del perfil.
+
+      touches:
+        - data/profile.json
+        - src/panels.mjs
+        - src/level/render.mjs
+        - README.md
+        - test/stages.test.mjs
+        - test/level.test.mjs
+        - stages/gpu.md
+        - stages/lab.md
+        - stages/inf.md
+        - stages/ag.md
+        - stages/elec.md
+        - stages/fab.md
+        - stages/train.md
+        - stages/cross.md
+        - assets/header.svg
+        - assets/stage-head.svg
+        - assets/stage-gpu.svg
+        - assets/stage-lab.svg
+        - assets/stage-inf.svg
+        - assets/stage-ag.svg
+        - assets/stage-me.svg
+        - assets/stage-elec.svg
+        - assets/stage-fab.svg
+        - assets/stage-train.svg
+        - assets/stage-cross.svg
+        - assets/warning.svg
+        - assets/status.svg
+        - assets/crossover.svg
+        - assets/chiplog.svg
+        - assets/demons.svg
+        - assets/allies.svg
 
 ## Verification
 

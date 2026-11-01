@@ -2,13 +2,13 @@
 
 <p align="center"><img src="../assets/stage-lab.svg" width="600" alt="LEGACY IRON: EPYC · IPMI"></p>
 
-<h3>ZONA</h3>
-<p>Supermicro H11SSL-i con EPYC, silenciado desde Windows sin instalar nada: IPMI en crudo por WMI y registros del SDR borrados y restaurados.</p>
+<h3>ZONE</h3>
+<p>A Supermicro H11SSL-i with an EPYC, silenced from Windows without installing anything: raw IPMI over WMI, and SDR records deleted and restored.</p>
 
-<h3>JEFE</h3>
-<p><b>FAIL-SAFE DE BAJAS RPM</b></p>
+<h3>BOSS</h3>
+<p><b>LOW-RPM FAIL-SAFE</b></p>
 
 <h3>REPOS</h3>
 <ul><li><a href="https://github.com/TheSOV/h11ssl-quiet-fans">h11ssl-quiet-fans</a></li></ul>
 
-<p align="center"><a href="https://github.com/TheSOV">◂ VOLVER AL STAGE SELECT</a></p>
+<p align="center"><a href="https://github.com/TheSOV">◂ BACK TO STAGE SELECT</a></p>
