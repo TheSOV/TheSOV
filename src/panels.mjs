@@ -123,7 +123,8 @@ const tileAt = (i) => ({ x: TILE.left + (i % 3) * (TILE.w + TILE.gap), y: TILE.t
 
 function playerTile({ x, y }) {
   const frames = IDLE_POSES.map((p) => withBlade(heroPose(p)));
-  const idle = rotation("idle", frames.map(pathsSvg), 0.33);
+  // The mockup changed pose every 10 display frames: 1/6 s.
+  const idle = rotation("idle", frames.map(pathsSvg), 1 / 6);
   const body =
     box({ x, y, w: TILE.w, h: TILE.h, rx: 4, fill: "url(#me)", stroke: C.gold, "stroke-width": 2 }) +
     placed({ x: x + TILE.w / 2 - 33, y: y + 6 }, idle.body) +
