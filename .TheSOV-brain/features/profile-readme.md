@@ -264,18 +264,29 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
       touches:
         - README.md
 
-- [ ] **Cada stage se abre al pulsarlo**, como en el mockup: nueve casillas SVG en una tabla, cada una el `<summary>` de un `<details>` con ZONA, JEFE y REPOS; sin JS #stage-click needs #static
+- [ ] **Cada stage se abre al pulsarlo**, como en el mockup: nueve casillas SVG en rejilla, y cada stage enlaza a su propia página en `stages/` con ZONA, JEFE y REPOS; sin JS #stage-click needs #static
 
-      Elegida por la persona (opción A, 2026-11-02) frente a casillas-enlace
-      o una tabla fija. La imagen va dentro de `<picture>`: GitHub envuelve
-      cualquier `<img>` suelto en un enlace al propio SVG, y dentro de un
-      `<summary>` ese enlace se come el clic.
+      Primero se probó la opción A (2026-11-02): cada casilla el `<summary>`
+      de un `<details>` en una tabla. Funcionaba, pero la persona la
+      descartó al verla en GitHub («se ve super raro»): el marcador ▶, los
+      bordes de la tabla y el salto de altura no se pueden quitar desde un
+      README. Queda una página por stage: pulsar es «entrar» en el stage.
+      La casilla del jugador va dentro de `<picture>`: GitHub envuelve
+      cualquier `<img>` suelto en un enlace al propio SVG.
 
       touches:
         - src/panels.mjs
         - scripts/build.mjs
         - README.md
         - test/stages.test.mjs
+        - stages/gpu.md
+        - stages/lab.md
+        - stages/inf.md
+        - stages/ag.md
+        - stages/elec.md
+        - stages/fab.md
+        - stages/train.md
+        - stages/cross.md
         - assets/stages.svg
         - assets/stage-head.svg
         - assets/stage-gpu.svg
