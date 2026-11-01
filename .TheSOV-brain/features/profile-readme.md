@@ -181,6 +181,8 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 - 2026-11-01 · Medidores de SYSTEM STATUS → añadir RAM: 128 GB por servidor, 256 GB en total (persona; corregido el mismo día, primero lo entendí como 256 + 128)
 - 2026-11-01 · ¿Plan y huecos H1-H6 con sus ★? → aprobado (persona)
 - 2026-11-01 · ¿Borrar el repo temporal TheSOV/svg-probe al cerrar #spike? → sí, borrado por la persona; los resultados quedan en `spike/README.md` (persona)
+- 2026-11-01 · Presupuesto de peso por SVG → 1 000 000 bytes, bajo los 1 070 982 que el spike vio animar en todos los navegadores; no se conoce el límite real (agente)
+- 2026-11-01 · Rects fusionados por filas → se emiten como un `<path>` por color (`M x y h w v1 h-w z`), ~12 bytes por tramo en vez de ~55 con `<rect>` (agente)
 
 ## Milestones
 
@@ -214,7 +216,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - src/sprites/enemies.mjs
         - test/sprites.test.mjs
 
-- [ ] **Una cuadrícula se convierte en SVG** con rects fusionados por filas y cuadros animados con `steps()`, y el validador rechaza script, refs externas y exceso de peso #svg needs #sprite
+- [x] **Una cuadrícula se convierte en SVG** con rects fusionados por filas y cuadros animados con `steps()`, y el validador rechaza script, refs externas y exceso de peso #svg needs #sprite
 
       touches:
         - src/svg/grid.mjs
