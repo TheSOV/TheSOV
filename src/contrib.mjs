@@ -36,10 +36,15 @@ export function parseCalendar(json) {
   return { total, weeks: sums };
 }
 
-// Weekly sums -> column heights 0..6, relative to the busiest week; any activity is at least 1.
+// Weekly sums -> column heights 0..6 by rank among the active weeks, the way GitHub's own
+// calendar colours by quartile rather than linearly: a real year has one week of 1455 and most
+// under 150, and a linear scale flattens all of them to one block. Idle weeks are 0, the
+// quietest active week 1, the busiest 6.
 export function weekHeights(weeks) {
-  const max = Math.max(0, ...weeks);
-  return weeks.map((n) => (max === 0 ? 0 : Math.ceil((MAX_HEIGHT * n) / max)));
+  const active = weeks.filter((n) => n > 0).sort((a, b) => a - b);
+  const top = Math.max(1, active.length - 1);
+  const rank = (n) => active.findIndex((m) => m === n);
+  return weeks.map((n) => (n === 0 ? 0 : 1 + Math.round(((MAX_HEIGHT - 1) * rank(n)) / top)));
 }
 
 async function postOnce(login, token) {

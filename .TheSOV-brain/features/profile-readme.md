@@ -188,6 +188,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
 - 2026-11-01 · Punto de entrada del nivel → `node src/level/render.mjs [--sample]` en vez de `scripts/build.mjs --sample`: build.mjs es de `#static` y ampliar `touches` es de la persona; la Action llama al mismo comando (agente)
 - 2026-11-01 · Ritmo del nivel → 24 ticks/s: el año de ejemplo son 671 ticks, ~28 s por vuelta (H5 pedía ~30 s); 418 KB (agente)
 - 2026-11-01 · `face.png` fuera de git → la regla stray-control-character del gate lee binarios como texto ([TheSOV/harness#571](https://github.com/TheSOV/harness/issues/571)); se genera con el build y se sube a mano como avatar (persona: reportarlo y seguir)
+- 2026-11-01 · Alturas del nivel → por rango entre las semanas con actividad (1 a 6), como los cuartiles del calendario de GitHub, no lineal al máximo: con el año real (una semana de 1455, casi todas bajo 150) la escala lineal dejaba el nivel plano. Comprobado contra el calendario real: 6267 contribuciones, 416 KB, 10/10 enemigos (agente)
 - 2026-11-01 · Etiquetas de SYSTEM STATUS → partidas en dos líneas a escala 2 en vez de encogerse a escala 1, que no se leía (agente)
 
 ## Milestones
@@ -247,7 +248,7 @@ Mockup: https://claude.ai/artifact/151ktGtn7zk8BMmr7LZUiJ (v7).
         - assets/allies.svg
         - assets/face.png
 
-- [ ] **El nivel sale de contribuciones reales** y una Action diaria lo publica en la rama `output`; si falla, no commitea #level needs #svg #spike
+- [x] **El nivel sale de contribuciones reales** y una Action diaria lo publica en la rama `output`; si falla, no commitea #level needs #svg #spike
 
       touches:
         - src/level/simulate.mjs

@@ -17,8 +17,10 @@ test("the sample calendar parses to the last 52 weekly sums and its total", () =
   assert.ok(weeks.every((n) => Number.isInteger(n) && n >= 0));
 });
 
-test("heights run 0..6 relative to the busiest week, and any activity is at least one block", () => {
-  assert.deepEqual(weekHeights([0, 1, 50, 100]), [0, 1, 3, MAX_HEIGHT]);
+test("heights rank the active weeks from 1 to 6, so one huge week does not flatten the rest", () => {
+  assert.deepEqual(weekHeights([0, 1, 50, 100]), [0, 1, 4, MAX_HEIGHT]);
+  assert.deepEqual(weekHeights([3, 1455, 40, 40, 7]), [1, MAX_HEIGHT, 4, 4, 2]);
+  assert.deepEqual(weekHeights([0, 9, 0]), [0, 1, 0]);
   assert.deepEqual(weekHeights([0, 0, 0]), [0, 0, 0]);
 });
 
